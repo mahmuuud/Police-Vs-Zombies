@@ -14,11 +14,11 @@ public class GameState extends State {
     public GameState(Game game){
         super(game);
         player=new player(500,640,game);
-        zombie=new zombie(1000,640,game);
+        zombie=new zombie(2000,640,game,player);
     }
     @Override
     public void render(Graphics g) {
-        g.drawImage(ImageLoader.loadImage("/animation/background.png"),0,0,null);
+        g.drawImage(ImageLoader.loadImage("/animation/background1.png"),0,0,null);
         player.render(g);
         zombie.render(g);
 

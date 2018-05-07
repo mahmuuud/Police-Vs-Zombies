@@ -1,5 +1,6 @@
 package Essentials;
 
+import Entities.Gun;
 import States.GameState;
 import States.State;
 
@@ -11,7 +12,7 @@ public class Game implements Runnable {
     private Display display;
     private boolean running;
     private State menuState;
-    private int x=1000;
+    private Gun gun=new Gun(this);
     private Graphics g;
     private keyInputs keyInputs=new keyInputs();//to avoid null pointer exception in thread run method
     public Game(){
@@ -36,10 +37,7 @@ public class Game implements Runnable {
         if(State.getState()!=null){
             State.getState().render(g);
         }
-
-
-
-
+        gun.render(g);
         //end drawing
         bs.show();
         g.dispose();
@@ -49,6 +47,7 @@ public class Game implements Runnable {
        keyInputs.tick();
         if(State.getState() != null)
             State.getState().tick();
+        gun.tick();
 
     }
 
@@ -89,4 +88,7 @@ public class Game implements Runnable {
         return this.display;
     }
 
+    public Gun getGun() {
+        return gun;
+    }
 }

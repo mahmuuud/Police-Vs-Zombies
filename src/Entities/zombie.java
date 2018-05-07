@@ -12,6 +12,7 @@ import java.awt.image.BufferedImage;
 
 public class zombie extends creature {
     private Game game;
+    private player player;
     private BufferedImage[] walk;
     private BufferedImage[] attack;
     private BufferedImage[] hurt;
@@ -19,11 +20,12 @@ public class zombie extends creature {
     private Animation animationWalk;
     private Animation animationAttack;
 
-    public zombie(float x,float y,Game game){
+    public zombie(float x,float y,Game game,player player){
         super(game,x,y);
         this.game=game;
         walk=new BufferedImage[5];
         attack=new BufferedImage[6];
+        this.player=player;
 
 
         //walk animation array
@@ -43,19 +45,22 @@ public class zombie extends creature {
 
 
         //animations
-        animationWalk=new Animation(walk,500);
+        animationWalk=new Animation(walk,450);
 
     }
 
 
     @Override
     public void render(Graphics g) {
-       g.drawImage(animationWalk.getCurrentScene(),(int)x,(int)y,182,377,null);
+        g.drawImage(animationWalk.getCurrentScene(),(int)x,(int)y,182,377,null);
     }
 
     @Override
     public void tick() {
         animationWalk.tick();
-            x-=2;
+        x-=2;
+
     }
+
+
 }

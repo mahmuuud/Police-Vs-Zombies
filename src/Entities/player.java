@@ -6,21 +6,23 @@ import java.awt.image.BufferedImage;
 
 public class player extends creature {
 
-    private BufferedImage[] walk;
-    private BufferedImage[] walk1;
-    private BufferedImage[] attack;
-    private BufferedImage[] hurt;
-    private BufferedImage[] dead;
-    private BufferedImage[] idle;
+    private static BufferedImage[] walk;
+    private static BufferedImage[] walk1;
+    private static BufferedImage[] attack;
+    private static BufferedImage[] hurt;
+    private static BufferedImage[] dead;
+    private static BufferedImage[] idle;
+    private int level;
     private Game game;
-    private Animation animationWalkRight;
-    private Animation animationWalkLeft;
-    private Animation animationAttack;
-    private Animation animationIdle;
-    private Animation currentAnimation;
+    private static Animation animationWalkRight;
+    private static Animation animationWalkLeft;
+    private static Animation animationAttack;
+    private static Animation animationIdle;
+    private static Animation currentAnimation;
     public player(float x,float y,Game game){
         super(game,x,y);
         this.game=game;
+        this.level=1;
         walk=new BufferedImage[8];
         walk1=new BufferedImage[8];
         attack=new BufferedImage[1];
@@ -73,6 +75,8 @@ public class player extends creature {
     public void render(Graphics g) {
         g.drawImage(getCurrentAnimation(),(int)x,(int)y,182,377,null);
 
+
+
     }
 
     @Override
@@ -85,6 +89,11 @@ public class player extends creature {
             x -= 3;
         if(game.getKeyInputs().right)
             x += 3;
+        if(game.getKeyInputs().attack){
+            game.getGun().addBullet(new Bullet((int)x,game));
+
+        }
+
 
     }
 
@@ -98,7 +107,7 @@ public class player extends creature {
         else return animationIdle.getCurrentScene();
     }
 
-    public void setAnimationAttack(){
-
+    public int getLevel() {
+        return level;
     }
 }
