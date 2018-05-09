@@ -5,11 +5,12 @@ import java.awt.*;
 
 public class Display extends JFrame {
     private Canvas canvas;
-
+    public static Dimension screenSize;
+    public static Dimension frameSize;
     public Display(){
         canvas=new Canvas();
-        Dimension screensize=Toolkit.getDefaultToolkit().getScreenSize();
-        this.setSize(screensize);
+         screenSize=Toolkit.getDefaultToolkit().getScreenSize();
+        this.setSize(screenSize);
         this.setState(Frame.NORMAL);
         this.setResizable(false);
         this.setDefaultCloseOperation(3);
@@ -17,6 +18,7 @@ public class Display extends JFrame {
         canvas.setPreferredSize(new Dimension(getWidth(),getHeight()));
         canvas.setMinimumSize(new Dimension(getWidth(),getHeight()));
         canvas.setFocusable(false);
+        System.out.println(screenSize);
         this.setVisible(true);
         this.add(canvas);
         this.pack();

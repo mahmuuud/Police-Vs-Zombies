@@ -1,19 +1,24 @@
 package Entities;
 
+import Essentials.Display;
 import Essentials.Game;
+import Essentials.ImageLoader;
 
 import java.awt.*;
 
 public class Bullet {
     private int x;
+    private int y;
 
-    public Bullet(int x, Game game){
+    public Bullet(int x,int y, Game game){
         this.x=x;
+        this.y=y;
     }
 
     public void render(Graphics g){
-        g.setColor(Color.BLACK);
-        g.fillOval(x+(182/2),  840, 15, 5);
+        g.drawImage(ImageLoader.loadImage("/animation/bullet3.png"),x+(182/2),
+                y,Display.screenSize.width/96,
+                Display.screenSize.height/96,null);
     }
 
     public void tick(){

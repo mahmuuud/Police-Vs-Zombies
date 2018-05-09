@@ -1,6 +1,7 @@
 package Entities;
 
 import Essentials.Animation;
+import Essentials.Display;
 import Essentials.Game;
 import Essentials.ImageLoader;
 
@@ -52,7 +53,8 @@ public class zombie extends creature {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(animationWalk.getCurrentScene(),(int)x,(int)y,182,377,null);
+        g.drawImage(animationWalk.getCurrentScene(),(int)x,(int)y,Display.screenSize.width/10,
+                Display.screenSize.height/3,null);
     }
 
     @Override

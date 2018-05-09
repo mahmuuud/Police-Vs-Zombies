@@ -73,7 +73,9 @@ public class player extends creature {
 
     @Override
     public void render(Graphics g) {
-        g.drawImage(getCurrentAnimation(),(int)x,(int)y,182,377,null);
+        g.drawImage(getCurrentAnimation(),(int)x,(int)y,Display.screenSize.width/10,
+                Display.screenSize.height/3,null);
+        //182x377
 
 
 
@@ -90,7 +92,7 @@ public class player extends creature {
         if(game.getKeyInputs().right)
             x += 3;
         if(game.getKeyInputs().attack){
-            game.getGun().addBullet(new Bullet((int)x,game));
+            game.getGun().addBullet(new Bullet((int)x,(int)y+(Display.screenSize.height/6)+(Display.screenSize.height/75),game));
 
         }
 
