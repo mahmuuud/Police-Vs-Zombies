@@ -6,7 +6,6 @@ import java.awt.*;
 public class Display extends JFrame {
     private Canvas canvas;
     public static Dimension screenSize;
-    public static Dimension frameSize;
     public Display(){
         canvas=new Canvas();
          screenSize=Toolkit.getDefaultToolkit().getScreenSize();

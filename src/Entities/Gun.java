@@ -11,7 +11,7 @@ public class Gun {
     Game game;
 
     public Gun(Game game){
-        bullets=new ArrayList<Bullet>();
+        bullets=new ArrayList<>();
         this.game=game;
     }
 
@@ -42,6 +42,8 @@ public class Gun {
     public void removeBullet(Bullet b){
         this.bullets.remove(b);
     }
+
+
 
 
 }

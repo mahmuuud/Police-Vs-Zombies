@@ -15,7 +15,7 @@ public abstract class creature {
     public creature(Game game,float x, float y){
         this.x=x;
         this.y=y;
-        health=10;
+        health=100;
     }
 
     public void move(){
